@@ -3,11 +3,11 @@
 
 ## plan
 > 增加功能
-> 开发Chrome版本插件
+开发Chrome版本插件
 
 ## resource
 > 字体库：font-awesome
-> 框架：简单采用Vue.js
+框架：简单采用Vue.js
 
 ## ver-01
 > 数据存储于浏览器storage中，清除缓存会让数据丢失
