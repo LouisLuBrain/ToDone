@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ToDone, make todo to done
+        </title>
+        <link href="./ToDone.css" rel="stylesheet" type="text/css"/>
+        <link href="./font-awesome.css" rel="stylesheet" type="text/css">
+        </link>
+    </head>
+    <body>
+        <div class="main" id="todone">
+            <div class="container">
+                <div class="title">
+                    <div class="icon fa fa-tasks">
+                    </div>
+                    <div class="titel-text">
+                        待办列表
+                    </div>
+                    <div class="date" v-text="date">
+                    </div>
+                </div>
+                <div class="button-div">
+                    <button @click="addToDo" class="operation-button fa fa-plus">
+                    </button>
+                    <button @click="deleteDone" class="operation-button fa fa-trash-o">
+                    </button>
+                </div>
+                <div class="list-div">
+                    <div class="item" v-for="(item, idx) in list.todos">
+                        <div :class="['checkbox','fa', 'fa-fw', item.check?'fa-check-square':'fa-square-o' ]" :index="idx" v-on:click="done">
+                        </div>
+                        <div :class="['content', item.check?'done-content':'']" v-text="item.content">
+                        </div>
+                        <div class="time" v-text="item.time">
+                        </div>
+                    </div>
+                </div>
+                <div :class="[isAdd?'out':'back']" class="input-div">
+                    <input :class="['add-input']" placeholder="新建一条待办事项" type="text" v-model="newContent">
+                        <button @click="sendToDo" class="confirm-button fa fa-level-up">
+                        </button>
+                    </input>
+                </div>
+            </div>
+            <div class="container">
+                <div class="title" style="background-color: #999;">
+                    <div class="icon fa fa-history">
+                    </div>
+                    <div class="titel-text">
+                        遗留事件
+                    </div>
+                </div>
+                <div class="button-div">
+                    <button @click="deleteDone2" class="operation-button fa fa-trash-o" style="color: #999;">
+                    </button>
+                </div>
+                <div class="list-div">
+                    <div class="item" v-for="(item, idx) in historyList.todos">
+                        <div :class="['checkbox','fa', 'fa-fw', item.check?'fa-check-square':'fa-square-o' ]" :index="idx" v-on:click="done2">
+                        </div>
+                        <div :class="['content', item.check?'done-content':'']" v-text="item.content">
+                        </div>
+                        <div class="time" v-text="item.time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js">
+        </script>
+        <script src="./ToDone.js" type="text/javascript">
+        </script>
+        <!-- <script src="./ToDone.json?callback=todone" type="text/javascript"> -->
+    </body>
+</html>
